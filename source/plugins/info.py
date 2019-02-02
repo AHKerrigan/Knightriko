@@ -8,25 +8,19 @@ COMMAND = "info"
 
 async def command_info(client, message):
     """Display information about the server."""
-    response = "Hey there, I'm Lion! Here's a little bit more about me."
+    response = "Hey there, I'm Knightroko, a fork of Lion! Here's a little bit more about me."
 
     embedded_message = discord.Embed(color=0xffee05)
     embedded_message.add_field(
-        name="Creator",
+        name="Original Lion Bot Creator",
         value="Tiger Sachse",
         inline=False
     )
 
     embedded_message.add_field(
-        name="Contributors",        
+        name="Knightroko Contributors",        
         value="\n".join((
-            "Charles",
-            "Sam Shannon",
-            "Evan Rupert",
-            "Hayden Inghem",
-            "Caleb Shepard",
-            "Joey",
-            "Matthew Bautista",
+            "Alec Kerrigan",
         )),
         inline=False
     )
@@ -49,7 +43,8 @@ async def command_info(client, message):
 
     embedded_message.add_field(
         name="Source",
-        value="This project is hosted at https://github.com/tgsachse/lion.",
+        value="The original lion project is hosted at https://github.com/tgsachse/lion."
+			+ "Knightroko is hosted at https://github.com/AHKerrigan/Knightroko",
         inline=False
     )
     

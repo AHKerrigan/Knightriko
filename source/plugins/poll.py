@@ -1,6 +1,6 @@
-"""Poll plugin for Lion.
+"""Poll plugin for Knightroko.
 
-Give Lion the functionality to take a poll over a specified amount of time.
+Give Knightroko the functionality to take a poll over a specified amount of time.
 
 Written by Tiger Sachse.
 """

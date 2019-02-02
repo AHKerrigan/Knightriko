@@ -13,7 +13,7 @@ async def command_help_menu(client, message):
     embedded_message = discord.Embed(color=0xffee05)
     embedded_message.add_field(
         name="!info",
-        value="Show some more information about Shell (Lion).",
+        value="Show some more information about Knightroko.",
         inline=False
     )
 
@@ -42,27 +42,9 @@ async def command_help_menu(client, message):
     )
 
     embedded_message.add_field(
-        name="!addroles [roles...]",
-        value="Give yourself some new language roles.",
-        inline=False
-    )
-
-    embedded_message.add_field(
-        name="!removeroles [roles...]",
-        value="Remove language roles.",
-        inline=False
-    )
-
-    embedded_message.add_field(
       name="!dog [breed]",
       value="Get a picture of a good boy!",
       inline=False
-    )
-
-    embedded_message.add_field(
-        name="!8ball message",
-        value="Your questions will be answered by an object of irrelevance.",
-        inline=False
     )
 
     embedded_message.add_field(
@@ -70,35 +52,4 @@ async def command_help_menu(client, message):
         value="Create a spicy, sarcastic meme.",
         inline=False
     )
-
-    embedded_message.add_field(
-        name="!egg message",
-        value="Send your text through the egg machine.",
-        inline=False
-    )
-    
-    embedded_message.add_field(
-        name="!weather [city|zip]",
-        value="Check the current weather forecast.",
-        inline=False
-    )
-
-    embedded_message.add_field(
-        name="!listclasses",
-        value="List all class channels",
-        inline=False
-    )
-
-    embedded_message.add_field(
-        name="!register [class_names...]",
-        value="Register for classes, allowing access their channels",
-        inline=False
-    )
-
-    embedded_message.add_field(
-        name="!unregister [class_names...]",
-        value="Unregister from classes, hiding their channels",
-        inline=False
-    )
-
     await message.channel.send(response, embed=embedded_message)

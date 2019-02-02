@@ -1,7 +1,7 @@
-"""Main driver script for Lion.
+"""Main driver script for Knightroko.
 
 This script creates the Discord client interface and provides a hook into
-Lion's plugins.
+Knightroko's plugins.
 
 Written by Tiger Sachse.
 """
@@ -21,7 +21,7 @@ client = discord.Client()
 async def on_message(message):
     """Check for commands after each new message."""
 
-    # Skip messages emitted by Lion.
+    # Skip messages emitted by Knightroko.
     if message.author == client.user:
         return
 
@@ -55,12 +55,9 @@ async def on_message(message):
 
 @client.event
 async def on_member_join(member):
-    # change this to a more detailed message
-    # with instructions on how to register for classes
-
-    # uncomment line to enable
-    #await member.send("Welcome to the CS discord!")
-    pass
+	print("Welcome to the UCF Anime Spot Discord " + member.name + "!")
+	print("Please state your first name, as well if you are a dues paying memeber")
+	print("Then, you will be given a role and entry into the rest of the server!")
 
 
 def load_token():
