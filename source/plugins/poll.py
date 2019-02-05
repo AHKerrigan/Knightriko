@@ -11,7 +11,7 @@ import discord
 
 COMMAND = "poll"
 DELIMITER = ","
-MAX_MINUTES = 60
+MAX_MINUTES = 1000000
 CHOICE_FORMAT = "{0}) {1}"
 POLL_HEADER = "**New poll:**"
 PROMPT_PATTERN = r"(?P<prompt>.+)"

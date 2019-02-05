@@ -57,6 +57,7 @@ async def on_message(message):
 @client.event
 async def on_member_join(member):
 	channel = client.get_channel(535609411540877339)
+	
 	message = "Welcome to the UCF Anime Spot Discord " + member.mention + \
 	"! Please state your first name, as well as if you are a dues paying member." + \
 	"Then, you will be given a role and entry into the rest of the server!"
