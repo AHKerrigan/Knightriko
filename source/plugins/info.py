@@ -43,7 +43,7 @@ async def command_info(client, message):
 
     embedded_message.add_field(
         name="Source",
-        value="The original lion project is hosted at https://github.com/tgsachse/lion."
+        value="The original lion project is hosted at https://github.com/tgsachse/lion\n"
 			+ "Knightroko is hosted at https://github.com/AHKerrigan/Knightroko",
         inline=False
     )
