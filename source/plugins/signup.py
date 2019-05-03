@@ -23,6 +23,8 @@ COMMAND_PATTERN = r"^!{0} {1} {2} {3}$".format(
 )
 
 async def command_signup(client, message):
+    """Take a first name, last name, and email, and add them
+       to the sign-in roster"""
 
     command_match = re.match(COMMAND_PATTERN, message.content)
 

@@ -16,6 +16,8 @@ from plugins import (
     garage_status,
     require_links,
     signup,
+    createevent,
+    suggest,
 )
 
 FILTERED_CHANNELS = {
@@ -31,6 +33,8 @@ COMMANDS = {
     user_count.COMMAND : user_count.command_user_count,
     garage_status.COMMAND : garage_status.command_garage_status,
     signup.COMMAND : signup.command_signup,
+    createevent.COMMAND : createevent.command_signup,
+    suggest.COMMAND : suggest.command_suggest,
 }
 
 INLINES = {

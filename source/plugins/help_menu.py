@@ -30,6 +30,20 @@ async def command_help_menu(client, message):
     )
 
     embedded_message.add_field(
+        name = "!suggest \"Event Name\" Event description", 
+        value= "Add a new event/meeting idea to the suggestion box to be voted on"+\
+               " by the club",
+        inline=False
+    )
+
+    embedded_message.add_field(
+        name = "!signup First Last Email", 
+        value= "Registers your information so you can sign into events and meets with one command. "+\
+               "Don't worry, I'll delete your message so nobody can see your info.",
+        inline=False
+    )
+
+    embedded_message.add_field(
         name="!garage [garage]",
         value="See the status of the UCF parking garages.",
         inline=False
@@ -52,4 +66,5 @@ async def command_help_menu(client, message):
         value="Create a spicy, sarcastic meme.",
         inline=False
     )
+
     await message.channel.send(response, embed=embedded_message)
