@@ -1,4 +1,5 @@
 source/data/weather_token.txt
 source/data/discord_token.txt
+source/data/Knightroko-56e2f54b74b6.json
 source/lion_pid_temp.txt
 source/plugins/__pycache__/*.pyc
