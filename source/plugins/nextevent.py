@@ -11,7 +11,7 @@ from selenium.webdriver.firefox.options import Options
 COMMAND = "nextevent"
 EVENTS_URL = "https://knightconnect.campuslabs.com/engage/organization/animespot/events"
 KC_URL = 'https://knightconnect.campuslabs.com/'
-GECKO_PATH = "/home/animespotucf"
+#GECKO_PATH = "/home/animespotucf"
 
 async def command_nextevent(client, message):
     """ Displays information on the next Anime Spot meeting"""
@@ -39,7 +39,7 @@ async def kc_scrape():
     # any information about our events until AFTER the javascript has loaded
     options = Options()
     options.headless = True
-    response = webdriver.Firefox(options=options, executable_path=GECKO_PATH)
+    response = webdriver.Firefox(options=options)
     response.get(EVENTS_URL)
     soup = BeautifulSoup(response.page_source, features='lxml')
     events = soup.find_all('a', {'href':re.compile('/engage/event/', re.IGNORECASE)})
