@@ -45,7 +45,7 @@ async def kc_scrape():
     events = soup.find_all('a', {'href':re.compile('/engage/event/', re.IGNORECASE)})
 
     # We only needed the event lists so we can close this afterwards
-    session.reset()
+    response.Dispose()
 
     # If event this is empty, then there are no planned events on knight connect
     if len(events) == 0:
