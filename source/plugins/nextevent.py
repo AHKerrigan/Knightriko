@@ -38,7 +38,7 @@ async def kc_scrape():
     # Dryscrape opens a headless browser because Knight Connect will not load 
     # any information about our events until AFTER the javascript has loaded
     options = Options()
-    options.headless = true
+    options.headless = True
     response = webdriver.Firefox(options=options)
     response.get(EVENTS_URL)
     soup = BeautifulSoup(response.page_source, features='lxml')
