@@ -7,11 +7,12 @@ from datetime import datetime
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-COMMAND = "nextmeeting"
+COMMAND = "nextevent"
 EVENTS_URL = "https://knightconnect.campuslabs.com/engage/organization/animespot/events"
 KC_URL = 'https://knightconnect.campuslabs.com/'
+API_FILE = 'Knightroko-d23f10bfb24f.json'
 
-async def command_nextmeeting(client, message):
+async def command_nextevent(client, message):
     """ Displays information on the next Anime Spot meeting"""
 
     event_information = None

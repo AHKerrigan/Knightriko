@@ -13,6 +13,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 
 COMMAND = "suggest"
 GOOGLE_SHEET = 'Anime Spot Suggestion Box (Responses)'
+API_FILE = 'data/Knightroko-d23f10bfb24f.json'
 EVENT_NAME_FORMAT = r"(?P<event_name>\"(.*?)\")"
 EVENT_DESCRIPTION_FORMAT = r"(?P<event_description>.+)"
 COMMAND_PATTERN = r"^!{0} {1} {2}$".format(
@@ -53,7 +54,7 @@ async def save_row(event_name, event_description):
     new_row.append(event_description)
 
     # Authorize the google sheet and open
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('data/Knightroko-56e2f54b74b6.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(API_FILE, scope)
     gc = gspread.authorize(credentials)
 
     sheet = gc.open(GOOGLE_SHEET).sheet1

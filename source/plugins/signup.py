@@ -12,6 +12,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 
 COMMAND = "signup"
 GOOGLE_SHEET = 'Signin Roster'
+API_FILE = 'data/Knightroko-d23f10bfb24f.json'
 FIRST_NAME = r"(?P<first_name>[a-zA-Z ]*)"
 LAST_NAME = r"(?P<last_name>[a-zA-Z ]*)"
 EMAIL = r"(?P<email>[^ ]*)"
@@ -38,7 +39,7 @@ async def command_signup(client, message):
 
         return
     
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('data/Knightroko-56e2f54b74b6.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('data/' + API_FILE, scope)
     gc = gspread.authorize(credentials)
     
     user_id = message.author.id

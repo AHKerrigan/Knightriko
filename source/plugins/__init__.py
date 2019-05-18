@@ -18,7 +18,7 @@ from plugins import (
     signup,
     createevent,
     suggest,
-    nextmeeting,
+    nextevent,
 )
 
 FILTERED_CHANNELS = {
@@ -36,7 +36,7 @@ COMMANDS = {
     signup.COMMAND : signup.command_signup,
     createevent.COMMAND : createevent.command_signup,
     suggest.COMMAND : suggest.command_suggest,
-    nextmeeting.COMMAND : nextmeeting.command_nextmeeting,
+    nextevent.COMMAND : nextmeeting.command_nextevent,
 }
 
 INLINES = {
