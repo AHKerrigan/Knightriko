@@ -36,7 +36,7 @@ COMMANDS = {
     signup.COMMAND : signup.command_signup,
     createevent.COMMAND : createevent.command_signup,
     suggest.COMMAND : suggest.command_suggest,
-    nextevent.COMMAND : nextmeeting.command_nextevent,
+    nextevent.COMMAND : nextevent.command_nextevent,
 }
 
 INLINES = {
