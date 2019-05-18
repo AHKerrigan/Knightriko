@@ -1,16 +1,17 @@
 import discord
-import dryscrape
 import re
 import os
 import json
 from datetime import datetime
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 COMMAND = "nextevent"
 EVENTS_URL = "https://knightconnect.campuslabs.com/engage/organization/animespot/events"
 KC_URL = 'https://knightconnect.campuslabs.com/'
-API_FILE = 'Knightroko-d23f10bfb24f.json'
+
 
 async def command_nextevent(client, message):
     """ Displays information on the next Anime Spot meeting"""
@@ -36,10 +37,11 @@ async def kc_scrape():
     
     # Dryscrape opens a headless browser because Knight Connect will not load 
     # any information about our events until AFTER the javascript has loaded
-    session = dryscrape.Session()
-    session.visit(EVENTS_URL)
-    response = session.body()
-    soup = BeautifulSoup(response, features='lxml')
+    options = Options()
+    options.headless = true
+    response = webdriver.Firefox(options=options)
+    response.get(EVENTS_URL)
+    soup = BeautifulSoup(response.page_source, features='lxml')
     events = soup.find_all('a', {'href':re.compile('/engage/event/', re.IGNORECASE)})
 
     # We only needed the event lists so we can close this afterwards
