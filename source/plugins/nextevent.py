@@ -53,7 +53,7 @@ async def rss_scrape(client, message):
     event_information['Time'] = start.strftime("%I:%M%p") + " - " + end.strftime("%I:%M%p")
 
     # Description is a json, so parse it like one and remove the html junk
-    des_soup = BeautifulSoup(d['entries'][0]['summary_detail']['value'])
+    des_soup = BeautifulSoup(feed['entries'][0]['summary_detail']['value'])
     new_des = des_soup.find_all('div', {'class':'p-description description'})[0]
     event_information['Description'] = re.sub('<[^<]+?>', '', new_des.text)
 
