@@ -2,6 +2,7 @@ import discord
 import re
 import os
 import json
+import feedparser
 from datetime import datetime
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -11,6 +12,7 @@ from selenium.webdriver.firefox.options import Options
 COMMAND = "nextevent"
 EVENTS_URL = "https://knightconnect.campuslabs.com/engage/organization/animespot/events"
 KC_URL = 'https://knightconnect.campuslabs.com/'
+RSS_URL = 'https://knightconnect.campuslabs.com/engage/organization/animespot/events.rss'
 #GECKO_PATH = "/home/animespotucf"
 
 async def command_nextevent(client, message):
@@ -29,8 +31,33 @@ async def command_nextevent(client, message):
     embedded_message = await build_embed(event_information)
     print(embedded_message)
     await message.channel.send(response, embed=embedded_message)
-    
 
+async def rss_scrape(client, message):
+    "Parses the Knight Connect RSS feed"
+
+    feed = feedparser.parse(RSS_URL)
+
+    # Unfortunately the RSS feed is only for a week in the future, so in the case where theres
+    # more than a week until the next event, we won't get  
+    if len(feed['entries']) == 0:
+        return None
+    
+    event_information = {}
+    event_information['Name'] = feed['entries'][0]['title']
+    event_information['Location'] = feed['entries'][0]['location']
+
+    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %B %Y %H:%M:%S %Z')
+    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %B %Y %H:%M:%S %Z')
+
+    event_information['Date'] = start.strftime("%B %d, %Y")
+    event_information['Time'] = start.strftime("%I:%M%p") + " - " + end.strftime("%I:%M%p")
+
+    # Description is a json, so parse it like one and remove the html junk
+    des_soup = BeautifulSoup(d['entries'][0]['summary_detail']['value'])
+    new_des = des_soup.find_all('div', {'class':'p-description description'})[0]
+    event_information['Description'] = re.sub('<[^<]+?>', '', new_des.text)
+
+    return event_information
     
 async def kc_scrape():
     """ Directly scrapes knight connect for Anime Spot's event list"""
@@ -113,3 +140,4 @@ async def build_embed(event_information):
     )
 
     return embedded_message
+
