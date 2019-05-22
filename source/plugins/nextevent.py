@@ -18,7 +18,7 @@ RSS_URL = 'https://knightconnect.campuslabs.com/engage/organization/animespot/ev
 async def command_nextevent(client, message):
     """ Displays information on the next Anime Spot meeting"""
 
-    event_information = None
+    event_information = await rss_scrape(client, message)
 
     # The Knight Connect RSS feed only shows the next week worth of events
     # In the case where the next meetings is more than a week away, we have 
@@ -26,6 +26,7 @@ async def command_nextevent(client, message):
     if event_information == None:
         await message.channel.send("The next meeting or event is over a week away, this will take a second...")
         event_information = await kc_scrape()
+    
     
     response = "Here is the next Anime Spot event!"
     embedded_message = await build_embed(event_information)
