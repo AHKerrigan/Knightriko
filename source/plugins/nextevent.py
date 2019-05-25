@@ -8,6 +8,8 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from datetime import timezone
+from date
 
 COMMAND = "nextevent"
 EVENTS_URL = "https://knightconnect.campuslabs.com/engage/organization/animespot/events"
@@ -47,8 +49,8 @@ async def rss_scrape(client, message):
     event_information['Name'] = feed['entries'][0]['title']
     event_information['Location'] = feed['entries'][0]['location']
 
-    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %B %Y %H:%M:%S %Z')
-    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %B %Y %H:%M:%S %Z')
+    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %B %Y %H:%M:%S %Z') - datetime.timedelta(hours=2)
+    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %B %Y %H:%M:%S %Z') - datetime.timedelta(hours=2)
 
     event_information['Date'] = start.strftime("%B %d, %Y")
     event_information['Time'] = start.strftime("%I:%M%p") + " - " + end.strftime("%I:%M%p")
