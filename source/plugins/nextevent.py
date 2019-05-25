@@ -4,6 +4,7 @@ import os
 import json
 import feedparser
 from datetime import datetime
+from datetime import timedelta
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -49,8 +50,8 @@ async def rss_scrape(client, message):
     event_information['Location'] = feed['entries'][0]['location']
 
     # The two hour time delta is because the Knight Connect RSS feed is in GMT
-    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %B %Y %H:%M:%S %Z') - datetime.timedelta(hours=2)
-    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %B %Y %H:%M:%S %Z') - datetime.timedelta(hours=2)
+    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %B %Y %H:%M:%S %Z') - timedelta(hours=2)
+    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %B %Y %H:%M:%S %Z') - timedelta(hours=2)
 
     event_information['Date'] = start.strftime("%B %d, %Y")
     event_information['Time'] = start.strftime("%I:%M%p") + " - " + end.strftime("%I:%M%p")
