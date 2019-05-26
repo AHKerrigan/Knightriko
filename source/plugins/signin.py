@@ -24,7 +24,7 @@ async def command_signin(client, message):
     info = await get_details(user_id)
 
     if info == None:
-        await message.channel.send("I could not find your details", str(message.author))
+        await message.channel.send("I could not find your details" + str(message.author))
         await message.channel.send("Be sure that you've first used the <!signup First Last Email> command to register with me!")
         return
     
