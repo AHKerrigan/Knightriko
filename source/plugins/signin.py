@@ -32,7 +32,7 @@ async def command_signin(client, message):
     await message.channel.send("You have been signed in " + info[2] + "!")
     
 async def insert_signin(data):
-    """Given a cell from the signin roster, adds the member to the signin sheet"""
+    """ Given grabbed data of a member, add that member to the current signin sheet"""
 
     dt = datetime.now().strftime("%m/%d/%Y %H:%M%S")
     new_row = [dt, data[2] + " " + data[3], data[4]]
@@ -60,5 +60,4 @@ async def get_details(user_id):
         return None
     else:
         data = sheet.row_values(info[0].row)
-        print(data)
         return data
