@@ -42,7 +42,7 @@ async def command_signup(client, message):
     credentials = ServiceAccountCredentials.from_json_keyfile_name(API_FILE, scope)
     gc = gspread.authorize(credentials)
     
-    user_id = message.author.id
+    user_id = str(message.author.id)
     user_name = str(message.author)
     first_name = command_match.group("first_name")
     last_name = command_match.group("last_name")
