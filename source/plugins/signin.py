@@ -18,15 +18,14 @@ async def command_signin(client, message):
     """Signs in a member to a meeting sheet, or allows for a officer to
         start a signin"""
 
-    await message.channel.send("There is not currently an event to sign-in to!")
 
     user_id = message.author.id
 
     info = await get_details(user_id)
 
     if info == None:
-        message.channel.send("I could not find your details", str(message.author))
-        message.channel.send("Be sure that you've first used the <!signup First Last Email> command to register with me!")
+        await message.channel.send("I could not find your details", str(message.author))
+        await message.channel.send("Be sure that you've first used the <!signup First Last Email> command to register with me!")
         return
     
     print(info)
