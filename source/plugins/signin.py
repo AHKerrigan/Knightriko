@@ -2,6 +2,7 @@ import discord
 import re 
 import asyncio
 import discord
+from datetime import datetime
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -27,8 +28,20 @@ async def command_signin(client, message):
         await message.channel.send("I could not find your details " + str(message.author.mention))
         await message.channel.send("Be sure that you've first used the <!signup First Last Email> command to register with me!")
         return
+    await insert_signin(info)
+    await message.channel.send("You have been signed in " + info[2] + "!")
     
-    print(info)
+async def insert_signin(data):
+    """Given a cell from the signin roster, adds the member to the signin sheet"""
+
+    dt = datetime.now().strftime("%m/%d/%Y %H:%M%S")
+    new_row = [dt, data[2] + " " + data[3], data[4]]
+
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(API_FILE, scope)
+    gc = gspread.authorize(credentials)
+
+    sheet = gc.open(SIGN_IN_SHEET).sheet1
+    sheet.insert_row(new_row,2)
     return
 
 async def get_details(user_id):
