@@ -16,6 +16,7 @@ from plugins import (
     garage_status,
     require_links,
     signup,
+    signin,
     createevent,
     suggest,
     nextevent,
@@ -37,6 +38,7 @@ COMMANDS = {
     createevent.COMMAND : createevent.command_signup,
     suggest.COMMAND : suggest.command_suggest,
     nextevent.COMMAND : nextevent.command_nextevent,
+    signin.COMMAND : signin.command_signin,
 }
 
 INLINES = {
