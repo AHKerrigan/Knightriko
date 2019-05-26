@@ -40,7 +40,7 @@ async def get_details(user_id):
 
     sheet = gc.open(ROSTER_SHEET).sheet1
 
-    info = sheet.find(str(user_id))
+    info = sheet.findall(str(user_id))
     print(info.row)
 
     # It's possible they may have signed up twice, so we're going to grab their first entry
