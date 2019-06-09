@@ -50,8 +50,8 @@ async def rss_scrape(client, message):
     event_information['Location'] = feed['entries'][0]['location']
 
     # The two hour time delta is because the Knight Connect RSS feed is in GMT
-    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %B %Y %H:%M:%S %Z') - timedelta(hours=4)
-    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %B %Y %H:%M:%S %Z') - timedelta(hours=4)
+    start = datetime.strptime(feed['entries'][0]['start'], '%a, %d %b %Y %H:%M:%S %Z') - timedelta(hours=4)
+    end = datetime.strptime(feed['entries'][0]['end'], '%a, %d %b %Y %H:%M:%S %Z') - timedelta(hours=4)
 
     event_information['Date'] = start.strftime("%B %d, %Y")
     event_information['Time'] = start.strftime("%I:%M%p") + " - " + end.strftime("%I:%M%p")
