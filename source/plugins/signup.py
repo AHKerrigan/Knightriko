@@ -12,7 +12,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 
 COMMAND = "signup"
 GOOGLE_SHEET = 'Signin Roster'
-API_FILE = 'data/Knightroko-d23f10bfb24f.json'
+API_FILE = 'data/G_DOCS_API.json'
 FIRST_NAME = r"(?P<first_name>[a-zA-Z ]*)"
 LAST_NAME = r"(?P<last_name>[a-zA-Z ]*)"
 EMAIL = r"(?P<email>[^ ]*)"
