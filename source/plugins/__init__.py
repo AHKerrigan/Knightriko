@@ -17,7 +17,6 @@ from plugins import (
     require_links,
     signup,
     signin,
-    createevent,
     suggest,
     nextevent,
 )
@@ -35,7 +34,6 @@ COMMANDS = {
     user_count.COMMAND : user_count.command_user_count,
     garage_status.COMMAND : garage_status.command_garage_status,
     signup.COMMAND : signup.command_signup,
-    createevent.COMMAND : createevent.command_signup,
     suggest.COMMAND : suggest.command_suggest,
     nextevent.COMMAND : nextevent.command_nextevent,
     signin.COMMAND : signin.command_signin,
