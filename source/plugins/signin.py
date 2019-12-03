@@ -13,7 +13,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 COMMAND = "signin"
 SIGN_IN_SHEET = "Anime Spot Sign-In"
 ROSTER_SHEET = 'Signin Roster'
-API_FILE = 'data/Knightroko-d23f10bfb24f.json'
+API_FILE = 'data/knightroko-239403-4a96bd87efcl.json'
 
 async def command_signin(client, message):
     """Signs in a member to a meeting sheet, or allows for a officer to
