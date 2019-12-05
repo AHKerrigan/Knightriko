@@ -19,6 +19,7 @@ from plugins import (
     signin,
     suggest,
     nextevent,
+    kc
 )
 
 FILTERED_CHANNELS = {
@@ -37,6 +38,7 @@ COMMANDS = {
     suggest.COMMAND : suggest.command_suggest,
     nextevent.COMMAND : nextevent.command_nextevent,
     signin.COMMAND : signin.command_signin,
+    kc.COMMAND : kc.command_kc
 }
 
 INLINES = {

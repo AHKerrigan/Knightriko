@@ -3,3 +3,5 @@ source/data/discord_token.txt
 source/data/Knightroko-d23f10bfb24f.json
 source/lion_pid_temp.txt
 source/plugins/__pycache__/*.pyc
+*.csv
+source/data/knightrocards_db.json
