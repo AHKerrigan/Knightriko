@@ -12,7 +12,7 @@ async def command_summ(client, message):
     client = MongoClient()
     db = client['Knightrocards']
 
-    #print(db['Characters'].find({"Stars" : 1}).count())
+    print(db['Characters'].find({"Stars" : 1}).count())
     character = db['Characters'].aggregate([
         {"$sample" : {"size" : 1}}
     ])
