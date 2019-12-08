@@ -6,8 +6,8 @@ import math
 # Distributions 
 FIVE_STARS = 0.01
 FOUR_STARS = 0.04
-THREE_STARS = 0.15
-TWO_STARS = 0.3
+THREE_STARS = 0.2
+TWO_STARS = 0.5
 ONE_STAR = 0.5
 
 client = MongoClient()
@@ -19,7 +19,7 @@ characters = db['Characters']
 df = pd.read_csv("chars.csv", delimiter=",")
 total = df.shape[0]
 
-"""
+
 for ind, row in df.iterrows():
     new_entry = {}
     new_entry['ID'] = row['id']
@@ -43,7 +43,7 @@ for ind, row in df.iterrows():
     
     print(new_entry)
     characters.insert_one(new_entry)
-"""
+
 characters = db['Characters']
 for item in characters.find({"Stars" : 3}):
     print(item)
