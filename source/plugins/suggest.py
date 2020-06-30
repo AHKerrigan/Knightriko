@@ -13,7 +13,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 
 COMMAND = "suggest"
 GOOGLE_SHEET = 'Anime Spot Suggestion Box (Responses)'
-API_FILE = 'data/Knightroko-d23f10bfb24f.json'
+API_FILE = 'data/G_DOCS_API.json'
 EVENT_NAME_FORMAT = r"(?P<event_name>\"(.*?)\")"
 EVENT_DESCRIPTION_FORMAT = r"(?P<event_description>.+)"
 COMMAND_PATTERN = r"^!{0} {1} {2}$".format(

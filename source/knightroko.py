@@ -39,6 +39,11 @@ async def on_message(message):
             await INLINES[inline](client, message)
 
             return
+    if message.content == "bites za dusto":
+        e = discord.Embed()
+        e.set_image(url="https://cdn.discordapp.com/attachments/647607970674507791/727599643357085856/image0.gif")
+        await channel.send("", Embed=e)
+        return
 
     command_match = re.match(COMMAND_PATTERN, message.content, re.IGNORECASE)
     if command_match is not None:
