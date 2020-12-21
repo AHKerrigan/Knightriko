@@ -15,8 +15,11 @@ from plugins import COMMANDS, INLINES, FILTERED_CHANNELS
 TOKEN_FILE = "data/discord_token.txt"
 COMMAND_PATTERN = r"^!(?P<command>[a-zA-Z0-9]+)"
 
+
+intents = discord.Intents.default()
+intents.members = True
 # Create a Discord client to interface with Discord servers.
-client = discord.Client()
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_message(message):
